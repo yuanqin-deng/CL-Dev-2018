@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width"/>
+  <title>front-end</title>
+  <link rel="stylesheet" href="bootstrap.min.css"/>
+  <link rel="stylesheet" href="frontend.css"/>
+  <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <div class="header-ml clearfix">
+    <div class="logo">
+      <img src="images/front-end-developer-logo.png" alt=""/>
+    </div>
+    <a href="../index.html">
+      <div class="back-homepage">homepage</div>
+    </a>
+  </div>
+  <div class="main-ml">
+    <div class="intro-ml clearfix">
+      <div class="title">
+         Front-end Technologies
+      </div>
+      <div class="details">
+        Front-end Technology helps us realize the UI design,and interact with the users!
+      </div>
+      <div class="des">
+        Applications in Projects
+      </div>
+      <div class="arrow">
+        ↓
+      </div>
+
+
+      <img class="intro-background" src="images/intro-background-vertical.jpg" alt=""/>
+
+    </div>
+    <section class="content-ml canvas-ml" id="canvas">
+      <div class="sub-title">
+        <div class="bar" >_</div>
+        H5-CANVAS in PIE
+      </div>
+      <div class="details">
+      Creating product details picture for Decathlon Tmall.
+        <br/>
+      No more photoshop,FAST to create picture,EASY to use!
+      </div>
+      <div class="video-show">
+        <b>▶</b> <i>how to create?</i>
+      </div>
+      <div  class="canvas-video" >
+        <video id="canvasVideo"
+               type="video/mp4"
+               muted="true"
+               preload="auto"
+               autoplay="true"
+               controls="controls"
+            >
+          <source src="images/canvas.mp4"/>
+          "your browser does not support HTML5 video"
+        </video>
+        <div class="close-video">X</div>
+      </div>
+
+
+
+
+
+    </section>
+    <section class="content-ml home-section" id="responsive">
+      <div class="sub-title">
+        <div class="bar">_</div>
+        Responsive Homepage of .cn
+      </div>
+      <div class="details">
+        A completely new homepage is being created for decathlon.cn. <br/>
+        The content is responsive for all sizes of devices.
+      </div>
+      <div class="background">
+        <img src="images/mac.jpg" alt=""/>
+        <video
+            id="homepageVideo"
+            muted="true"
+            webkit-playsinline="true"
+            playsinline="true"
+            autoplay="true"
+            preload="auto"
+            type="video/mp4"
+            loop="loop"
+            >
+          <source src="images/homepage.mp4"/>
+          "your browser does not support HTML5 video"
+        </video>
+      </div>
+
+
+    </section>
+    <section class="content-ml vue-section" id="vue">
+      <div class="sub-title">
+        <div class="bar" >_</div>
+        Vue.js in PIE Project
+      </div>
+      <ul class="details-icons">
+        <li class="details-icon">
+          <img src="images/vue-component.jpg" alt=""/>
+          <div class="title">
+            COMPONENT
+          </div>
+          <div class="text">
+           Showing powerful abilities in creating a great amount of layouts in PIE!
+          </div>
+        </li>
+        <li class="details-icon">
+          <img src="images/data-binding.png" alt=""/>
+          <div class="title">
+            DATA BINDing
+          </div>
+          <div class="text">
+            Connecting DOM with JS variables
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+
+
+  <script>
+    $(function(){
+      $('.intro-ml .title').addClass('active');
+      $('.intro-ml .des').addClass('active');
+
+      /*处理homepage视频自动播放问题：手机端*/
+      var homepageVideo=document.getElementById('homepageVideo');
+      /*ios*/
+      document.addEventListener("WeixinJSBridgeReady", function (){
+        homepageVideo.play();
+      }, false);
+      /*android:在滚动时触发*/
+
+      /*滚动效果*/
+      var $sec1=$('#canvas');
+      var $sec2=$('#responsive');
+      var $sec3=$('#vue');
+      $(window).on('scroll',function(){
+        var deviceHeight=window.screen.availHeight;
+        var sec1Offset=$sec1.offset().top;
+        var sec2Offset=$sec2.offset().top;
+        var sec3Offset=$sec3.offset().top;
+        var scroll=$(window).scrollTop();
+        if(scroll>sec2Offset-deviceHeight){
+          $sec2.children('.sub-title').addClass('active');
+          $sec2.children('.details').addClass('active');
+          homepageVideo.play();
+        }else{
+          $sec2.children('.details').removeClass('active');
+        }
+        if(scroll>sec3Offset-deviceHeight){
+          $sec3.children('.sub-title').addClass('active');
+          $sec3.children('.details-icons').addClass('active');
+        }else{
+          $sec3.children('.details-icons').removeClass('active');
+
+        }
+      });
+
+
+
+      /*点击出现视频*/
+      var canvasVideo=$("#canvas .canvas-video");
+      $('#canvas .video-show').click(function(){
+        canvasVideo.addClass('active');
+      });
+      $('#canvas .close-video').click(function(){
+        canvasVideo.removeClass('active');
+      });
+
+
+      /*箭头效果*/
+      $('.intro-ml .arrow').addClass('animate');
+      var timer1=setTimeout(function(){
+        $(".intro-ml .arrow").removeClass('animate');
+      },2000);
+      $(window).scroll(function(){
+        $(".intro-ml .arrow").addClass('animate');
+        var timer2=setTimeout(function(){
+          $(".intro-ml .arrow").removeClass('animate');
+        },4000);
+      });
+
+    })
+  </script>
+</body>
+</html>
