@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>DEV team</title>
+
+    <script src="js/jquery-3.2.1.min.js">
+
+    </script>
+    <style>
+        .second-level{
+            position:relative;
+        }
+        .second-level .background{
+            width:100%;
+            height:100%;
+        }
+        .second-level .team-logo{
+            position:absolute;
+            top:10px;
+            left:30px;
+            width:12%;
+        }
+        .second-level .back-home{
+            position:absolute;
+            top:20px;
+            right:30px;
+            width:7%;
+        }
+        .second-level .team-logo img{
+            width:100%;
+        }
+        .second-level .back-home img{
+            width:100%;
+        }
+        .second-level .sec{
+            position:absolute;
+            margin:40px;
+            opaticty:0;
+            top:-100px;
+        }
+        .second-level .sec img{
+            width:500px;
+        }
+        .second-level .sec1.active{
+            top:20%;
+            opacity:1;
+            transition: all 1s ease;
+        }
+        .second-level .sec2.active{
+            top:40%;
+            right:0;
+            opacity:1;
+            transition: all 1s ease;
+        }
+        .second-level .sec3.active{
+            top:60%;
+            opacity:1;
+            transition: all 1s ease;
+        }
+        .second-level .sec1 img{
+            width:325px;
+        }
+        .second-level .sec3 img{
+            width:300px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="second-level">
+    <img class="background" src="images/java1.jpg" alt=""/>
+    <div class="team-logo">
+        <a href="index.html">
+            <img src="images/devteam.png" alt=""/>
+        </a>
+    </div>
+    <div class="back-home">
+        <a href="index.html">
+            <img src="images/homepagelogo.png" alt=""/>
+        </a>
+    </div>
+
+    <div class="sec sec1">
+        <a href="https://frontcnpp.decathlon.com.cn/static/cube/">
+            <img src="images/logo_ATG.gif" alt=""/>
+        </a>
+    </div>
+    <div class="sec sec2">
+        <a href="https://saibo01yang.wixsite.com/easypay?from=singlemessage&isappinstalled=0">
+            <img src="images/spring-logo.png" alt=""/>
+        </a>
+    </div>
+    <div class="sec sec3">
+        <a href="https://frontcnpp.decathlon.com.cn/static/loyalty/">
+            <img src="images/microservice.png" alt=""/>
+        </a>
+    </div>
+</div>
+</body>
+<script>
+    $(function(){
+        $('.second-level .sec').addClass('active');
+    })
+</script>
+
+</html>
